@@ -18,6 +18,7 @@ public class GalgelegKlient {
 //    }
 //*/
 
+
     gl.nulstil();
     gl.logStatus();
 
