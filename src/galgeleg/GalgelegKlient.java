@@ -12,21 +12,29 @@ public class GalgelegKlient {
         GalgelegLogik gl = galleg.hentLogik();
         
         gl.nulstil();        
-        gl.logStatus();
+//        gl.logStatus();
         
         Scanner scanner = new Scanner(System.in); // opret scanner-objekt
         
         while (true) try {
             
+            System.out.println(gl.getSynligtOrd());
+            System.out.println("Antal forkerte: "+gl.getAntalForkerteBogstaver());
             System.out.println("Gæt på et bogstav: ");
             
             String valg = scanner.next();            
             scanner.nextLine();
             
             gl.gætBogstav(valg);            
-            gl.logStatus();
+            System.out.println();
             
-            if (gl.erSpilletSlut()) {                
+            if (gl.erSpilletSlut()) {
+                if(gl.erSpilletVundet()){
+                    System.out.println("Tillykke du har vundet!");
+                } else {
+                    System.out.println("Du har desværre tabt");
+                }
+                System.out.println("");
                 break;
             }
             
