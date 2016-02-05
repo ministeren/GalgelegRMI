@@ -20,7 +20,8 @@ public class GalgelegServer {
         GalgelegImpl impl = new GalgelegImpl(gl);
         
         java.rmi.registry.LocateRegistry.createRegistry(1099); // start rmiregistry i server-JVM        
-        Naming.rebind("rmi://localhost/galge", impl);        
+        Naming.rebind("rmi://localhost/galge", impl);
+        System.out.println("Server Running");
     }
     
 }
