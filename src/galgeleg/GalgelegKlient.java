@@ -12,17 +12,12 @@ public class GalgelegKlient {
     public static void main(String[] args) throws Exception {
 
         boolean userChoice = false;
-        boolean userOrd = false;
         String userWord = "";
         Scanner scanner = new Scanner(System.in); // opret scanner-objekt
         String user;
         String pass;
-//        brugerautorisation.transport.soap.Brugeradminklient bak;
         brugerautorisation.transport.soap.Brugeradmin ba;
         brugerautorisation.transport.soap.Bruger br;
-//        
-//        bak = new brugerautorisation.transport.soap.Brugeradminklient();
-//        ba = bak.getBa();
 
         URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
@@ -71,34 +66,22 @@ public class GalgelegKlient {
                     userWord = scanner.next();
                     scanner.nextLine();
                     System.out.println("");
-                    userOrd = true;
+                    gl.setOrdet(userWord);
                     userChoice = true;
                     break;
                 case 2:
                     System.out.println("");
+                    gl.setOrdetAuto();
                     userChoice = true;
                     break;
                 default:
                     System.out.println("Du skal vælge 1 eller 2");
             }
-        }        
-        
-//        URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
-//        QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
-//        Service serviceGalge = Service.create(urlGalge, qnameGalge);
-//        Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
-//        GalgelegLogik gl = galleg.hentLogik();        
-        
-        if(userOrd){
-            gl.setOrdet(userWord);
-        } else {
-            gl.setOrdetAuto();
         }
         
         gl.nulstil();
         
-        while (true) try {
-            
+        while (true) try {            
             System.out.println(gl.getSynligtOrd());
             System.out.println("Antal forkerte: "+gl.getAntalForkerteBogstaver());
             System.out.println("Brugte bogstaver: "+gl.getBrugteBogstaver());
