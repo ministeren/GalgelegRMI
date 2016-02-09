@@ -17,12 +17,20 @@ public class GalgelegKlient {
         Scanner scanner = new Scanner(System.in); // opret scanner-objekt
         String user;
         String pass;
-        brugerautorisation.transport.soap.Brugeradminklient bak;
+//        brugerautorisation.transport.soap.Brugeradminklient bak;
         brugerautorisation.transport.soap.Brugeradmin ba;
         brugerautorisation.transport.soap.Bruger br;
+//        
+//        bak = new brugerautorisation.transport.soap.Brugeradminklient();
+//        ba = bak.getBa();
+
+        URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
+        QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
+        Service serviceGalge = Service.create(urlGalge, qnameGalge);
+        Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
+        GalgelegLogik gl = galleg.hentLogik();  
         
-        bak = new brugerautorisation.transport.soap.Brugeradminklient();
-        ba = bak.getBa();
+        ba = gl.getBa();
         
         while(true){
             System.out.println("Indtast brugernavn:");
@@ -75,11 +83,11 @@ public class GalgelegKlient {
             }
         }        
         
-        URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
-        QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
-        Service serviceGalge = Service.create(urlGalge, qnameGalge);
-        Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
-        GalgelegLogik gl = galleg.hentLogik();        
+//        URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
+//        QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
+//        Service serviceGalge = Service.create(urlGalge, qnameGalge);
+//        Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
+//        GalgelegLogik gl = galleg.hentLogik();        
         
         if(userOrd){
             gl.setOrdet(userWord);

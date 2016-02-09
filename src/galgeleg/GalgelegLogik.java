@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,10 +20,19 @@ public class GalgelegLogik implements Serializable{
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
   private boolean spilletErTabt;
+  brugerautorisation.transport.soap.Brugeradminklient bak;
+  brugerautorisation.transport.soap.Brugeradmin ba;
+  brugerautorisation.transport.soap.Bruger br;
+        
+        
 
 
   public ArrayList<String> getBrugteBogstaver() {
     return brugteBogstaver;
+  }
+  
+  public brugerautorisation.transport.soap.Brugeradmin getBa(){
+      return ba;
   }
 
   public String getSynligtOrd() {
@@ -62,7 +72,10 @@ public class GalgelegLogik implements Serializable{
   }
 
 
-  public GalgelegLogik() {
+  public GalgelegLogik() throws MalformedURLException{
+    bak = new brugerautorisation.transport.soap.Brugeradminklient();
+    ba = bak.getBa();
+    
     muligeOrd.add("bil");
     muligeOrd.add("computer");
     muligeOrd.add("programmering");

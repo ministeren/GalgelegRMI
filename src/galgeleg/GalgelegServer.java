@@ -20,6 +20,8 @@ public class GalgelegServer {
 // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og
         Endpoint.publish("http://[::]:9933/kontotjeneste", impl);
         System.out.println("Kontotjeneste publiceret.");
+        
+        
 
 //        GalgelegLogik gl = new GalgelegLogik();
 //        GalgelegImpl impl = new GalgelegImpl(gl);
