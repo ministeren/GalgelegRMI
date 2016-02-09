@@ -8,11 +8,8 @@ import java.util.Scanner;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-public class GalgelegKlient {
-    
+public class GalgelegKlient {    
     public static void main(String[] args) throws Exception {
-        
-//        Galgeleg galleg = (Galgeleg) Naming.lookup("rmi://localhost/galge"); 
 
         boolean userChoice = false;
         boolean userOrd = false;
@@ -76,8 +73,7 @@ public class GalgelegKlient {
                 default:
                     System.out.println("Du skal vælge 1 eller 2");
             }
-        }
-        
+        }        
         
         URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
@@ -120,6 +116,5 @@ public class GalgelegKlient {
         
         System.out.println("Afslutter programmet... ");
         System.exit(0);
-
     }
 }

@@ -4,19 +4,15 @@
 * and open the template in the editor.
 */
 package galgeleg;
-
 import java.io.IOException;
 import java.rmi.Naming;
 import javax.xml.ws.Endpoint;
-
 /**
  *
  * @author Christian
  */
 public class GalgelegServer {
-    
     public static void main(String[] arg) throws IOException{
-        
         
         System.out.println("publicerer kontotjeneste");
         GalgelegLogik gl = new GalgelegLogik();
@@ -31,7 +27,5 @@ public class GalgelegServer {
 //        java.rmi.registry.LocateRegistry.createRegistry(1099); // start rmiregistry i server-JVM
 //        Naming.rebind("rmi://localhost/galge", impl);
 //        System.out.println("Server Running");
-
     }
-    
 }
