@@ -32,6 +32,14 @@ public class GalgelegLogik implements Serializable{
   public String getOrdet() {
     return ordet;
   }
+  
+  public void setOrdet(String in) {
+    ordet = in;
+  }
+  
+  public void setOrdetAuto() {
+    ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
+  }
 
   public int getAntalForkerteBogstaver() {
     return antalForkerteBogstaver;
@@ -63,15 +71,14 @@ public class GalgelegLogik implements Serializable{
     muligeOrd.add("gangsti");
     muligeOrd.add("skovsnegl");
     muligeOrd.add("solsort");
-    nulstil();
+//    nulstil();
   }
 
   public void nulstil() {
     brugteBogstaver.clear();
     antalForkerteBogstaver = 0;
     spilletErVundet = false;
-    spilletErTabt = false;
-    ordet = muligeOrd.get(new Random().nextInt(muligeOrd.size()));
+    spilletErTabt = false;    
     opdaterSynligtOrd();
   }
 

@@ -19,9 +19,7 @@ public class Brugeradminklient {
         URL urlBruger = new URL("http://javabog.dk:9901/brugeradmin?wsdl");
         QName qnameBruger = new QName("http://soap.transport.brugerautorisation/", "BrugeradminImplService");
         Service serviceBruger = Service.create(urlBruger, qnameBruger);
-        ba = serviceBruger.getPort(Brugeradmin.class);
-        
-        
+        ba = serviceBruger.getPort(Brugeradmin.class);        
     }
     
     public Brugeradmin getBa(){
