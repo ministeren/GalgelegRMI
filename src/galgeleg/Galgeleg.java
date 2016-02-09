@@ -5,13 +5,17 @@
  */
 package galgeleg;
 
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
 /**
  *
  * @author Christian
  */
+@WebService
 public interface Galgeleg extends java.rmi.Remote{
     
-    GalgelegLogik hentLogik() throws java.rmi.RemoteException;
+    @WebMethod GalgelegLogik hentLogik() throws java.rmi.RemoteException;
    
     
 }

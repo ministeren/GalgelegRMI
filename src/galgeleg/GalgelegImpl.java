@@ -7,11 +7,13 @@ package galgeleg;
 
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import javax.jws.WebService;
 
 /**
  *
  * @author Christian
  */
+@WebService(endpointInterface = "galgeleg.Galgeleg")
 public class GalgelegImpl extends UnicastRemoteObject implements Galgeleg{
     
     GalgelegLogik gl;
