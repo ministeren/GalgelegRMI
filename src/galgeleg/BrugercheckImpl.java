@@ -6,8 +6,6 @@
 package galgeleg;
 
 import java.net.MalformedURLException;
-import java.rmi.server.UnicastRemoteObject;
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 /**
@@ -17,14 +15,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "galgeleg.BrugercheckInt")
 public class BrugercheckImpl implements BrugercheckInt{
     
-//    brugerautorisation.transport.soap.Brugeradminklient bak;
-//    brugerautorisation.transport.soap.Brugeradmin ba;
-//    
-//    bak = new brugerautorisation.transport.soap.Brugeradminklient();
-//    ba = bak.getBa();
-    
     public String checkBruger(String user, String pass) throws MalformedURLException,com.sun.xml.ws.fault.ServerSOAPFaultException{
         return (new brugerautorisation.transport.soap.Brugeradminklient()).getBa().hentBruger(user, pass).fornavn;
-    };
-    
+    };    
 }

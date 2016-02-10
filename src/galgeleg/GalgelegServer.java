@@ -5,7 +5,6 @@
 */
 package galgeleg;
 import java.io.IOException;
-import java.rmi.Naming;
 import javax.xml.ws.Endpoint;
 /**
  *

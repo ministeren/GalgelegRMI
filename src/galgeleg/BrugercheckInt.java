@@ -16,8 +16,6 @@ import javax.jws.WebService;
 @WebService
 public interface BrugercheckInt{
     
-//    @WebMethod brugerautorisation.transport.soap.Brugeradmin getBa() throws java.rmi.RemoteException;
-    
     @WebMethod String checkBruger(String user, String pass) throws MalformedURLException,com.sun.xml.ws.fault.ServerSOAPFaultException;
     
 }

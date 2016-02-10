@@ -1,12 +1,10 @@
 package brugerautorisation.transport.soap;
 
-import java.util.ArrayList;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 @WebService
-public interface Brugeradmin
-{
+public interface Brugeradmin {
 	/**
 	 * Henter alle en brugers data
 	 * @return et Bruger-objekt med alle data

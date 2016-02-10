@@ -1,9 +1,6 @@
 package galgeleg;
 
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.rmi.Naming;
-import java.util.ArrayList;
 import java.util.Scanner;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
