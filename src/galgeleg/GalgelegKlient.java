@@ -101,6 +101,7 @@ public class GalgelegKlient {
                 } else {
                     System.out.println("Du har desværre tabt");
                 }
+                System.out.println("Ordet var: "+gl.getOrdet());
                 System.out.println("");
                 break;
             }

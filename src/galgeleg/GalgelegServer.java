@@ -14,7 +14,7 @@ import javax.xml.ws.Endpoint;
 public class GalgelegServer {
     public static void main(String[] arg) throws IOException{
         
-        System.out.println("publicerer Galgejeneste");
+        System.out.println("Publicerer tjenester");
         GalgelegLogik gl = new GalgelegLogik();
         GalgelegImpl gimpl = new GalgelegImpl(gl);
         BrugercheckImpl bimpl = new BrugercheckImpl();
@@ -22,6 +22,6 @@ public class GalgelegServer {
 // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og
         Endpoint.publish("http://[::]:9933/brugertjeneste", bimpl);
         Endpoint.publish("http://[::]:9934/galgetjeneste", gimpl);
-        System.out.println("Galgetjeneste publiceret.");
+        System.out.println("Tjenester publiceret");
     }
 }
