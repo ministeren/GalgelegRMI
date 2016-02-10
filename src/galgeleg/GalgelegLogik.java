@@ -86,6 +86,10 @@ public class GalgelegLogik implements Serializable{
     muligeOrd.add("solsort");
 //    nulstil();
   }
+  
+  public String checkBruger(String user, String pass) throws com.sun.xml.ws.fault.ServerSOAPFaultException {
+      return ba.hentBruger(user, pass).fornavn;
+  }
 
   public void nulstil() {
     brugteBogstaver.clear();

@@ -16,16 +16,12 @@ public class GalgelegKlient {
         Scanner scanner = new Scanner(System.in); // opret scanner-objekt
         String user;
         String pass;
-        brugerautorisation.transport.soap.Brugeradmin ba;
-        brugerautorisation.transport.soap.Bruger br;
 
         URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
         Service serviceGalge = Service.create(urlGalge, qnameGalge);
         Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
-        GalgelegLogik gl = galleg.hentLogik();  
-        
-        ba = gl.getBa();
+        GalgelegLogik gl = galleg.hentLogik();
         
         while(true){
             System.out.println("Indtast brugernavn:");
@@ -38,15 +34,16 @@ public class GalgelegKlient {
             scanner.nextLine();
             
             try{
-                br = ba.hentBruger(user, pass); 
-                if(br!=null){
+                String navn = gl.checkBruger(user, pass);
+                if(navn!=null){
                     System.out.println("");
                     System.out.println("Korrekt brugernavn og password");
-                    System.out.println("Velkommen til Galgeleg "+br.fornavn);
+                    System.out.println("Velkommen til Galgeleg "+navn);
                     System.out.println("");
                     break;
                 }
             } catch (com.sun.xml.ws.fault.ServerSOAPFaultException e){
+                System.out.println("");
                 System.out.println("Forkert brugernavn eller password");
                 System.out.println("");
             }
