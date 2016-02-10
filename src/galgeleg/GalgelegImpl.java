@@ -13,8 +13,8 @@ import javax.jws.WebService;
  *
  * @author Christian
  */
-@WebService(endpointInterface = "galgeleg.Galgeleg")
-public class GalgelegImpl extends UnicastRemoteObject implements Galgeleg{
+@WebService(endpointInterface = "galgeleg.GalgelegInt")
+public class GalgelegImpl extends UnicastRemoteObject implements GalgelegInt{
     
     GalgelegLogik gl;
     

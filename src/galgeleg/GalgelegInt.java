@@ -13,7 +13,7 @@ import javax.jws.WebService;
  * @author Christian
  */
 @WebService
-public interface Galgeleg extends java.rmi.Remote{
+public interface GalgelegInt extends java.rmi.Remote{
     
     @WebMethod GalgelegLogik hentLogik() throws java.rmi.RemoteException;
    

@@ -12,6 +12,7 @@ import java.util.HashSet;
 import java.util.Random;
 
 public class GalgelegLogik implements Serializable{
+    
   private ArrayList<String> muligeOrd = new ArrayList<String>();
   private String ordet;
   private ArrayList<String> brugteBogstaver = new ArrayList<String>();
@@ -20,20 +21,17 @@ public class GalgelegLogik implements Serializable{
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
   private boolean spilletErTabt;
-  brugerautorisation.transport.soap.Brugeradminklient bak;
-  brugerautorisation.transport.soap.Brugeradmin ba;
-  brugerautorisation.transport.soap.Bruger br;
-        
-        
-
-
+//  brugerautorisation.transport.soap.Brugeradminklient bak;
+//  brugerautorisation.transport.soap.Brugeradmin ba;
+//  brugerautorisation.transport.soap.Bruger br;
+  
   public ArrayList<String> getBrugteBogstaver() {
     return brugteBogstaver;
   }
   
-  public brugerautorisation.transport.soap.Brugeradmin getBa(){
-      return ba;
-  }
+//  public brugerautorisation.transport.soap.Brugeradmin getBa(){
+//      return ba;
+//  }
 
   public String getSynligtOrd() {
     return synligtOrd;
@@ -73,8 +71,8 @@ public class GalgelegLogik implements Serializable{
 
 
   public GalgelegLogik() throws MalformedURLException{
-    bak = new brugerautorisation.transport.soap.Brugeradminklient();
-    ba = bak.getBa();
+//    bak = new brugerautorisation.transport.soap.Brugeradminklient();
+//    ba = bak.getBa();
     
     muligeOrd.add("bil");
     muligeOrd.add("computer");
@@ -87,9 +85,9 @@ public class GalgelegLogik implements Serializable{
 //    nulstil();
   }
   
-  public String checkBruger(String user, String pass) throws com.sun.xml.ws.fault.ServerSOAPFaultException {
-      return ba.hentBruger(user, pass).fornavn;
-  }
+//  public String checkBruger(String user, String pass) throws com.sun.xml.ws.fault.ServerSOAPFaultException {
+//      return ba.hentBruger(user, pass).fornavn;
+//  }
 
   public void nulstil() {
     brugteBogstaver.clear();

@@ -16,11 +16,16 @@ public class GalgelegKlient {
         Scanner scanner = new Scanner(System.in); // opret scanner-objekt
         String user;
         String pass;
+        
+        URL urlBruger = new URL("http://localhost:9933/brugertjeneste?wsdl");
+        QName qnameBruger = new QName("http://galgeleg/", "BrugercheckImplService");
+        Service serviceBruger = Service.create(urlBruger, qnameBruger);
+        BrugercheckInt brugerCheck = serviceBruger.getPort(BrugercheckInt.class);        
 
-        URL urlGalge = new URL("http://localhost:9933/kontotjeneste?wsdl");
+        URL urlGalge = new URL("http://localhost:9934/galgetjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
         Service serviceGalge = Service.create(urlGalge, qnameGalge);
-        Galgeleg galleg = serviceGalge.getPort(Galgeleg.class);        
+        GalgelegInt galleg = serviceGalge.getPort(GalgelegInt.class);        
         GalgelegLogik gl = galleg.hentLogik();
         
         while(true){
@@ -34,7 +39,7 @@ public class GalgelegKlient {
             scanner.nextLine();
             
             try{
-                String navn = gl.checkBruger(user, pass);
+                String navn = brugerCheck.checkBruger(user, pass);
                 if(navn!=null){
                     System.out.println("");
                     System.out.println("Korrekt brugernavn og password");
