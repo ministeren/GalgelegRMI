@@ -14,12 +14,12 @@ public class GalgelegKlient {
         String user;
         String pass;
         
-        URL urlBruger = new URL("http://localhost:9933/brugertjeneste?wsdl");
+        URL urlBruger = new URL("http://localhost:9943/brugertjeneste?wsdl");
         QName qnameBruger = new QName("http://galgeleg/", "BrugercheckImplService");
         Service serviceBruger = Service.create(urlBruger, qnameBruger);
         BrugercheckInt brugerCheck = serviceBruger.getPort(BrugercheckInt.class);        
 
-        URL urlGalge = new URL("http://localhost:9934/galgetjeneste?wsdl");
+        URL urlGalge = new URL("http://localhost:9944/galgetjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
         Service serviceGalge = Service.create(urlGalge, qnameGalge);
         GalgelegInt galleg = serviceGalge.getPort(GalgelegInt.class);        

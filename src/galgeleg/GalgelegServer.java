@@ -19,8 +19,8 @@ public class GalgelegServer {
         BrugercheckImpl bimpl = new BrugercheckImpl();
         
 // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og
-        Endpoint.publish("http://[::]:9933/brugertjeneste", bimpl);
-        Endpoint.publish("http://[::]:9934/galgetjeneste", gimpl);
+        Endpoint.publish("http://[::]:9943/brugertjeneste", bimpl);
+        Endpoint.publish("http://[::]:9944/galgetjeneste", gimpl);
         System.out.println("Tjenester publiceret");
     }
 }
