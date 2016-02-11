@@ -1,5 +1,7 @@
 package galgeleg;
 
+import com.cdyne.ws.DocumentSummary;
+import com.cdyne.ws.Words;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -9,6 +11,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
 
 public class GalgelegLogik implements Serializable {
@@ -46,7 +49,29 @@ public class GalgelegLogik implements Serializable {
     }
     
     public void setOrdet(String in) {
-        ordet = in;
+        
+        DocumentSummary ds = checkTextBodyV2(in);
+        
+        List<String> rigtigeOrd = null;
+        
+        for (Words w : ds.getMisspelledWord()) {
+            rigtigeOrd = w.getSuggestions();
+        }
+        
+        if(rigtigeOrd==null){
+            System.out.println("Ordet er rigtigt");
+            System.out.println("");
+            ordet = in;
+        } else if (rigtigeOrd.isEmpty()){
+            System.out.println("Ordet er ukendt, der vælges et indbygget");
+            System.out.println("");
+            setOrdetAuto();
+        } else {
+            System.out.println("Ordet er forkert stavet, der vælges et tilfældigt rettet");
+            System.out.println("");
+            int choice = rigtigeOrd.size()/2;
+            ordet = rigtigeOrd.get(choice);
+        }
     }
     
     public void setOrdetAuto() {
@@ -151,5 +176,11 @@ public class GalgelegLogik implements Serializable {
         
         System.out.println("muligeOrd = " + muligeOrd);
         nulstil();
+    }
+
+    private static DocumentSummary checkTextBodyV2(java.lang.String bodyText) {
+        com.cdyne.ws.Check service = new com.cdyne.ws.Check();
+        com.cdyne.ws.CheckSoap port = service.getCheckSoap12();
+        return port.checkTextBodyV2(bodyText);
     }
 }
