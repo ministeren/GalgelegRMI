@@ -16,6 +16,6 @@ import javax.jws.WebService;
 @WebService
 public interface BrugercheckInt{
     
-    @WebMethod String checkBruger(String user, String pass) throws MalformedURLException,com.sun.xml.ws.fault.ServerSOAPFaultException;
+    @WebMethod String checkBruger(String user, String pass) throws Exception;
     
 }

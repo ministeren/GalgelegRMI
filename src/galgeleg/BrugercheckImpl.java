@@ -15,7 +15,7 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "galgeleg.BrugercheckInt")
 public class BrugercheckImpl implements BrugercheckInt{
     
-    public String checkBruger(String user, String pass) throws MalformedURLException,com.sun.xml.ws.fault.ServerSOAPFaultException{
+    public String checkBruger(String user, String pass) throws Exception{
         return (new brugerautorisation.transport.soap.Brugeradminklient()).getBa().hentBruger(user, pass).fornavn;
     };    
 }

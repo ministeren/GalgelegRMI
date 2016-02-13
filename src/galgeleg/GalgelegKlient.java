@@ -14,12 +14,12 @@ public class GalgelegKlient {
         String user;
         String pass;
         
-        URL urlBruger = new URL("http://localhost:9943/brugertjeneste?wsdl");
+        URL urlBruger = new URL("http://s144843@ubuntu4.javabog.dk:9943/brugertjeneste?wsdl");
         QName qnameBruger = new QName("http://galgeleg/", "BrugercheckImplService");
         Service serviceBruger = Service.create(urlBruger, qnameBruger);
         BrugercheckInt brugerCheck = serviceBruger.getPort(BrugercheckInt.class);        
 
-        URL urlGalge = new URL("http://localhost:9944/galgetjeneste?wsdl");
+        URL urlGalge = new URL("http://s144843@ubuntu4.javabog.dk:9944/galgetjeneste?wsdl");
         QName qnameGalge = new QName("http://galgeleg/", "GalgelegImplService");
         Service serviceGalge = Service.create(urlGalge, qnameGalge);
         GalgelegInt galleg = serviceGalge.getPort(GalgelegInt.class);        
@@ -44,12 +44,13 @@ public class GalgelegKlient {
                     System.out.println("");
                     break;
                 }
-            } catch (com.sun.xml.ws.fault.ServerSOAPFaultException e){
+            } catch (Exception e){
                 System.out.println("");
                 System.out.println("Forkert brugernavn eller password");
                 System.out.println("");
             }
         }
+        
         
         while(!userChoice){
             System.out.println("1: Indtast eget ord");
